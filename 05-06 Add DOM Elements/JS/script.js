@@ -9,11 +9,16 @@ console.log(altText);
 var captionElement = document.createElement("figcaption");
 console.log(captionElement);
 
-var captionText = document.createTextNode(altText);
-console.log(captionText);
+// var captionText = document.createTextNode(altText);
+// console.log(captionText);
 
-captionElement.appendChild(captionText);
-console.log(captionElement);
+//instead of createTextNode we can use the append method only.
 
-FEATURED.appendChild(captionElement);
+captionElement.append(altText);
+
+// captionElement.appendChild(captionText);
+// console.log(captionElement);
+
+// FEATURED.appendChild(captionElement);
+FEATURED.append(captionElement);
 THEIMAGE.setAttribute("alt" , "");
