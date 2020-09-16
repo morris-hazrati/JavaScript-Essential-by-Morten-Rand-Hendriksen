@@ -2,8 +2,8 @@
 const HOURHAND = document.querySelector("#hour");
 const MINUTEHAND = document.querySelector("#minute");
 const SECONDHAND = document.querySelector("#second");
-function runTheClock () {
-    //the current time will be created 
+
+//the current time will be created 
     //then the hour, minute and second of the current time will be extracted
     var date = new Date();
     let hr = date.getHours();
@@ -17,6 +17,11 @@ function runTheClock () {
     let minPosition = min * 360/60 + sec * 360/60 /60;
     let secPosition = sec * 360/60;
 
+function runTheClock () {
+    
+    hrPosition = hrPosition + 3/360;
+    minPosition = minPosition + 6/60;
+    secPosition = secPosition + 360/60;
     //move the hands, by transform and rotate properties and the calcualted degrees of the rotations
     HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
     MINUTEHAND.style.transform = "rotate(" + minPosition + "deg)";
