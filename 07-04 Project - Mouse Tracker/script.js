@@ -11,12 +11,24 @@ var windowHeight = window.innerHeight;
 console.log(windowWidth , windowHeight);
 
 function mouseCoordinates(evt) {
-  console.log("Hi");
+  // console.log("Hi");
   var horizontalPosition = windowWidth - 26 - evt.clientX;
   var verticalPosition = windowHeight - 26 -evt.clientY;
-  console.log(horizontalPosition);
+  // console.log(horizontalPosition);
 
   CIRCLE.style.left = horizontalPosition + "px";
   CIRCLE.style.top = verticalPosition + "px";
 };
+
+function changeColorOnTouch () {
+  console.log("entered");
+  CIRCLE.style.backgroundColor = "green";
+  CIRCLE.style.borderColor = "green";
+}
 AREA.addEventListener('mousemove' , mouseCoordinates , false);
+
+CIRCLE.addEventListener('mouseenter' , changeColorOnTouch , false);
+
+CIRCLE.addEventListener('mouseleave' , function () {
+  CIRCLE.removeAttribute("style");
+} , false);
