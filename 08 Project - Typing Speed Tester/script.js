@@ -32,7 +32,18 @@ function start () {
 function spellCheck () {
   console.log("spellCheck function triggered!");
   let textEntered = testArea.value;
+  let textEnteredLength = testArea.value.length;
   console.log("textEntered: " , textEntered);
+  let originTextMatch = originText.substring(0 , textEnteredLength);
+
+  if (textEntered == originText) {
+    testWrapper.style.borderColor = "#429890";
+  } else {
+    if (textEntered == originTextMatch) {
+      testWrapper.style.borderColor = "#65ccf3";
+    } else {testWrapper.style.borderColor = "#e95d0f";}
+    }
+    
 };
 
 function reset () {
