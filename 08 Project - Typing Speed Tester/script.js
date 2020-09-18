@@ -19,12 +19,16 @@ console.log("theTimer: " , theTimer);
 
 var timer = [0,0,0,0];
 
+var interval;
+var timerRunning = false;
+
 // 3- create the handler functions
 function start () {
   console.log("start function triggered!");
   let textEnteredLength = testArea.value.length;
-  if (textEnteredLength === 0) {
-    setInterval(runTimer , 10);
+  if (textEnteredLength === 0 && !timerRunning) {
+    interval = setInterval(runTimer , 10);
+    timerRunning = true;
   }
   console.log("textEnteredLength: " , textEnteredLength);
 };
@@ -37,13 +41,14 @@ function spellCheck () {
   let originTextMatch = originText.substring(0 , textEnteredLength);
 
   if (textEntered == originText) {
+    clearInterval(interval);
     testWrapper.style.borderColor = "#429890";
   } else {
     if (textEntered == originTextMatch) {
       testWrapper.style.borderColor = "#65ccf3";
     } else {testWrapper.style.borderColor = "#e95d0f";}
     }
-    
+
 };
 
 function reset () {
