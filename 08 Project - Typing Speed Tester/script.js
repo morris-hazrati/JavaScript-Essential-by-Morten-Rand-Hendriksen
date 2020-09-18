@@ -53,6 +53,12 @@ function spellCheck () {
 
 function reset () {
   console.log("reset function triggered");
+  clearInterval(interval);
+  timer = [0,0,0,0];
+  timerRunning = false;
+  testArea.value = "";
+  theTimer.innerHTML = "00:00:00";
+  testWrapper.style.borderColor = "grey";
 };
 
 // 4- create runTimer function to run the runTimer
