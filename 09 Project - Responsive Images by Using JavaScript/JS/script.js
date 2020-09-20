@@ -30,10 +30,16 @@ for (let i=0; i < IMAGES.length ; i++) {
   let srcset = makeSrcset(imgSrc);
   console.log("srcset: " , srcset);
 
+
+
   //then, the data-type of images extracted
   let type = IMAGES[i].getAttribute("data-type");
   console.log("type: " , type);
   let sizes = SIZES[type];
 
   console.log("sizes: " , sizes);
+
+  //Lastly, the srcset and sizes attributes injected to the img getElementsByTagName
+  IMAGES[i].setAttribute("srcset" , srcset);
+  IMAGES[i].setAttribute("sizes" , sizes);
 }
